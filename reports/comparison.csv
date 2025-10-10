@@ -1,0 +1,2 @@
+file,model,acc,f1
+best_model_efficientnet_b0.pth,efficientnet_b0,0.9448568398727466,0.9411708119676176
