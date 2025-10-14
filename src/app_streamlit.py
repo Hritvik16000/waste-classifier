@@ -1,4 +1,22 @@
 from pathlib import Path
+import urllib.request, streamlit as st
+
+FILE_DIR = Path(__file__).resolve().parent
+ROOT_DIR = FILE_DIR.parent
+MODEL_DIR = ROOT_DIR / "models"
+CKPT_PATH = MODEL_DIR / "best_model.pth"
+CALIB_PATH = MODEL_DIR / "calibration.json"
+
+def ensure_assets():
+    MODEL_DIR.mkdir(parents=True, exist_ok=True)
+    if not CKPT_PATH.exists():
+        st.info("Downloading model…")
+        urllib.request.urlretrieve(st.secrets["MODEL_URL"], CKPT_PATH)
+    if "CALIB_URL" in st.secrets and not CALIB_PATH.exists():
+        urllib.request.urlretrieve(st.secrets["CALIB_URL"], CALIB_PATH)
+
+
+from pathlib import Path
 import os
 
 # Find absolute paths safely
