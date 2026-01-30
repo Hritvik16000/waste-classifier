@@ -9,3 +9,14 @@ matplotlib
 seaborn
 streamlit
 Pillow
+streamlit>=1.30,<2
+altair>=5,<7
+numpy
+pillow
+torch
+torchvision
+timm
+opencv-python
+scikit-learn
+scipy
+pandas
